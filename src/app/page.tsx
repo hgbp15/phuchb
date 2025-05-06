@@ -1,4 +1,4 @@
-"use client"; // Cần thêm này vì chúng ta sử dụng hooks
+"use client";
 
 import { useState } from "react";
 import TodoItem from "./TodoItem";
