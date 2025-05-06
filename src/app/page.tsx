@@ -38,7 +38,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <div className="px-6 py-4 bg-blue-500">
-          <h1 className="text-2xl font-bold text-white">Todo List</h1>
+          <h1 className="text-2xl font-bold text-white">Todo List App</h1>
         </div>
         
         <div className="p-6">
