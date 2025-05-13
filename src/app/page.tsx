@@ -114,7 +114,6 @@ export default function Home() {
             )}
           </div>
 
-          
           {todos.length > 0 && (
             <div className="mt-4 text-sm text-gray-500">
               {todos.filter(t => t.completed).length} / {todos.length} tasks đã hoàn thành
