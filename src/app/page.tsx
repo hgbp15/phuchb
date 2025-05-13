@@ -3,6 +3,7 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
 import { Todo } from "./types";
+import Image from 'next/image';
 import axios from 'axios';
 
 export default function Home() {
@@ -109,7 +110,7 @@ export default function Home() {
           <div className="flex justify-center mt-10">
             {imgUrl && (
               <div>
-                <img src={imgUrl} alt="Con mòe" className="max-w-full h-auto rounded"/>
+                <Image src={imgUrl} alt="Con mòe" className="max-w-full h-auto rounded"/>
               </div>
             )}
           </div>
