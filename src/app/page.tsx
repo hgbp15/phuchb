@@ -3,8 +3,8 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
 import { Todo } from "./types";
-import Image from 'next/image';
 import axios from 'axios';
+import instance from "./instance";
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -39,7 +39,7 @@ export default function Home() {
 
   const CatImageDisplay = async () => {
     try {
-      const response = await axios.get("https://api.thecatapi.com/v1/images/search");
+      const response = await instance.get("/images/search");
       const url = response.data[0]?.url;
       if (url) {
         setImgUrl(url);
@@ -77,7 +77,7 @@ export default function Home() {
             />
             <button
               onClick={addTodo}
-              className="px-4 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-blue-500 text-white rounded-r cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Thêm
             </button>
@@ -101,7 +101,7 @@ export default function Home() {
           <div className="flex justify-center">
             <button
               onClick={CatImageDisplay}
-              className="px-4 py-2 bg-blue-500 text-white rounded-l rounded-r hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-blue-500 text-white rounded-l rounded-r cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Ảnh con mòe
             </button>
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="flex justify-center mt-10">
             {imgUrl && (
               <div>
-                <Image src={imgUrl} alt="Con mòe" className="max-w-full h-auto rounded"/>
+                <img src={imgUrl} alt="Con mòe" className="max-w-full h-auto rounded"/>
               </div>
             )}
           </div>
