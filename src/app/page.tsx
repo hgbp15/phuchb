@@ -10,7 +10,7 @@ export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [imgUrl, setImgUrl] = useState(null);
-
+  
   const addTodo = () => {
     if (inputValue.trim()) {
       setTodos([
@@ -73,11 +73,11 @@ export default function Home() {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && addTodo()}
               placeholder="Thêm task mới..."
-              className="flex-1 px-4 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              className="flex-1 px-4 py-2 border rounded-l text-black"
             />
             <button
               onClick={addTodo}
-              className="px-4 py-2 bg-blue-500 text-white rounded-r cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-blue-500 text-white rounded-r cursor-pointer hover:bg-blue-600"
             >
               Thêm
             </button>
@@ -98,10 +98,16 @@ export default function Home() {
             )}
           </div>
 
+          {todos.length > 0 && (
+            <div className="mt-4 text-sm text-gray-500">
+              {todos.filter(t => t.completed).length} / {todos.length} tasks đã hoàn thành
+            </div>
+          )}
+
           <div className="flex justify-center">
             <button
               onClick={CatImageDisplay}
-              className="px-4 py-2 bg-blue-500 text-white rounded-l rounded-r cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600"
             >
               Ảnh con mòe
             </button>
@@ -114,12 +120,6 @@ export default function Home() {
               </div>
             )}
           </div>
-
-          {todos.length > 0 && (
-            <div className="mt-4 text-sm text-gray-500">
-              {todos.filter(t => t.completed).length} / {todos.length} tasks đã hoàn thành
-            </div>
-          )}
         </div>
       </div>
     </div>
